@@ -1,0 +1,506 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+
+<!-- Nav -->
+<nav>
+	<div class="nav-inner">
+		<span class="logo">Merlin</span>
+		<a href="#contact" class="nav-cta">Request access</a>
+	</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+	<div class="container">
+		<div class="badge">AI-powered · Self-hosted · In active use</div>
+		<h1>Your invoices.<br />Posted automatically.</h1>
+		<p class="hero-sub">
+			Merlin reads supplier PDFs, extracts every line item, suggests GL accounts, and posts transactions — inside your own system. It learns your specific business with every invoice it processes.
+		</p>
+		<div class="hero-actions">
+			<a href="#contact" class="btn-primary">Request early access</a>
+			<a href="#how-it-works" class="btn-ghost">See how it works</a>
+		</div>
+		<p class="hero-note">Your data never leaves your system. No processing bureau. No outsourcing.</p>
+	</div>
+</section>
+
+<!-- Problem -->
+<section class="section" id="problem">
+	<div class="container">
+		<div class="section-label">The problem</div>
+		<h2>Invoice entry is repetitive, expensive, and entirely manual.</h2>
+		<div class="problem-grid">
+			<div class="problem-card">
+				<div class="problem-icon">📄</div>
+				<h3>PDFs arrive. Someone opens each one.</h3>
+				<p>Keys the figures into accounting software. Assigns accounts. Files the document. Repeat — every single invoice, every week.</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-icon">💸</div>
+				<h3>Outsource it and you're paying for data entry.</h3>
+				<p>Your financials leave your system. Someone else's hands touch your supplier relationships and spending patterns. Then they send it back.</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-icon">🤖</div>
+				<h3>Generic AI doesn't know your business.</h3>
+				<p>Off-the-shelf tools guess at account codes based on general patterns. They don't know that your Supplier A always goes to account 5100.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- How it works -->
+<section class="section section-alt" id="how-it-works">
+	<div class="container">
+		<div class="section-label">How it works</div>
+		<h2>Upload. Extract. Review. Post.</h2>
+		<div class="steps">
+			<div class="step">
+				<div class="step-num">01</div>
+				<div class="step-body">
+					<h3>Invoice arrives</h3>
+					<p>Upload a PDF manually, or drop it into a watched folder for hands-free batch ingestion. Merlin accepts any supplier format.</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">02</div>
+				<div class="step-body">
+					<h3>Merlin extracts everything</h3>
+					<p>Supplier, invoice number, date, due date, every line item, tax, totals. Multi-currency invoices handled with live exchange rates.</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">03</div>
+				<div class="step-body">
+					<h3>Account codes suggested from your history</h3>
+					<p>Merlin checks how you've coded this supplier before and applies the same logic — getting more accurate every month.</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">04</div>
+				<div class="step-body">
+					<h3>High confidence → auto-posted. Low confidence → review queue.</h3>
+					<p>You set the threshold. Nothing hits the ledger without meeting it. Every AI decision is logged with confidence scores.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Differentiators -->
+<section class="section" id="why-merlin">
+	<div class="container">
+		<div class="section-label">Why Merlin</div>
+		<h2>Built differently from the start.</h2>
+		<div class="diff-grid">
+			<div class="diff-card">
+				<div class="diff-icon">🔒</div>
+				<h3>Your data never leaves</h3>
+				<p>Merlin runs inside your own environment. Every invoice, every GL posting, every AI decision lives in your database — under your control, with a full audit trail. No third-party access.</p>
+			</div>
+			<div class="diff-card">
+				<div class="diff-icon">🧠</div>
+				<h3>Learns your business specifically</h3>
+				<p>Not generic accounting patterns — your suppliers, your accounts, your preferences. The more you use it, the smarter it gets for <em>you</em>.</p>
+			</div>
+			<div class="diff-card">
+				<div class="diff-icon">✅</div>
+				<h3>Human review where it counts</h3>
+				<p>Speed of automation on invoices Merlin knows well. Clear review queue for anything unusual. No silent errors buried in your accounts.</p>
+			</div>
+			<div class="diff-card">
+				<div class="diff-icon">📒</div>
+				<h3>Proper double-entry ledger</h3>
+				<p>Not a simplified tracker. Full chart of accounts, tax rate handling, document sequencing. Built to support real bookkeeping work — just without the data entry.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Features -->
+<section class="section section-alt" id="features">
+	<div class="container">
+		<div class="section-label">What's included</div>
+		<h2>Everything from upload to audit trail.</h2>
+		<ul class="feature-list">
+			<li><span class="check">✓</span> PDF invoice ingestion — upload or watched folder batch processing</li>
+			<li><span class="check">✓</span> Intelligent extraction — supplier, line items, tax, totals</li>
+			<li><span class="check">✓</span> Multi-currency support — live rates, finalised at payment</li>
+			<li><span class="check">✓</span> Account code suggestion from your own posting history</li>
+			<li><span class="check">✓</span> Autonomous posting rules — condition-based auto-approval</li>
+			<li><span class="check">✓</span> Review queue for anything that needs a human eye</li>
+			<li><span class="check">✓</span> Payables tracking — outstanding balances and due dates</li>
+			<li><span class="check">✓</span> Expense reporting by account and supplier</li>
+			<li><span class="check">✓</span> Full audit trail — every action and AI decision logged</li>
+			<li><span class="check">✓</span> Multi-tenant — separate books per entity, landlord admin panel</li>
+		</ul>
+	</div>
+</section>
+
+<!-- Social proof / status -->
+<section class="section" id="status">
+	<div class="container narrow">
+		<blockquote>
+			"The difference between generic AI and Merlin is that Merlin knows <em>your</em> business — not just accounting in general."
+		</blockquote>
+		<div class="status-bar">
+			<div class="status-item">
+				<span class="status-dot active"></span>
+				Core pipeline in production
+			</div>
+			<div class="status-item">
+				<span class="status-dot active"></span>
+				Multi-tenant live
+			</div>
+			<div class="status-item">
+				<span class="status-dot active"></span>
+				Early access open
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="section section-cta" id="contact">
+	<div class="container narrow center">
+		<h2>Replace your invoice data entry cost.</h2>
+		<p>If you're currently paying someone to key invoices into your accounting software, Merlin is a direct replacement — with a ledger that's always up to date and a record of exactly how every decision was made.</p>
+		<a href="mailto:nettsitesa@gmail.com?subject=Merlin early access" class="btn-primary large">Get in touch</a>
+		<p class="cta-note">No sales funnel. Just a conversation about your use case.</p>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<span class="logo">Merlin</span>
+		<p>AI-powered invoice processing. Self-hosted. Built for small businesses.</p>
+	</div>
+</footer>
+
+</Layout>
+
+<style>
+/* ─── Layout ─── */
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 28px;
+}
+.container.narrow { max-width: 740px; }
+.center { text-align: center; }
+
+/* ─── Headings ─── */
+h1, h2, h3 {
+	font-family: 'Roboto', system-ui, sans-serif;
+}
+
+/* ─── Nav ─── */
+nav {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: rgba(10, 15, 30, 0.88);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-inner {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 14px 28px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.logo {
+	font-family: 'Roboto', system-ui, sans-serif;
+	font-size: 1.3rem;
+	font-weight: 900;
+	color: #fff;
+	letter-spacing: -0.01em;
+}
+.nav-cta {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: #a78bfa;
+	text-decoration: none;
+	padding: 8px 18px;
+	border: 1px solid rgba(167,139,250,0.4);
+	border-radius: 6px;
+	transition: all 0.15s;
+}
+.nav-cta:hover {
+	background: rgba(167,139,250,0.1);
+	border-color: #a78bfa;
+}
+
+/* ─── Hero ─── */
+.hero {
+	padding: 64px 0 52px;
+	background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,0.18) 0%, transparent 60%);
+}
+.badge {
+	display: inline-block;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #a78bfa;
+	background: rgba(124,58,237,0.12);
+	border: 1px solid rgba(124,58,237,0.3);
+	border-radius: 100px;
+	padding: 5px 14px;
+	margin-bottom: 22px;
+}
+.hero h1 {
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 900;
+	line-height: 1.05;
+	letter-spacing: -0.03em;
+	color: #ffffff;
+	margin-bottom: 20px;
+}
+.hero-sub {
+	font-size: 1.3rem;
+	color: #a8afc0;
+	max-width: 580px;
+	line-height: 1.65;
+	margin-bottom: 30px;
+}
+.hero-actions {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.hero-note {
+	font-size: 0.9rem;
+	color: #6b7280;
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+	display: inline-block;
+	background: #7c3aed;
+	color: #fff;
+	font-family: 'Source Sans 3', system-ui, sans-serif;
+	font-weight: 600;
+	font-size: 1.05rem;
+	padding: 13px 28px;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: background 0.15s, transform 0.1s;
+}
+.btn-primary:hover { background: #6d28d9; transform: translateY(-1px); }
+.btn-primary.large { font-size: 1.15rem; padding: 15px 34px; }
+.btn-ghost {
+	display: inline-block;
+	color: #8b93a8;
+	font-weight: 500;
+	font-size: 1.05rem;
+	text-decoration: none;
+	padding: 13px 4px;
+	border-bottom: 1px solid transparent;
+	transition: color 0.15s, border-color 0.15s;
+}
+.btn-ghost:hover { color: #c2c8d6; border-color: #6b7280; }
+
+/* ─── Sections ─── */
+.section {
+	padding: 60px 0;
+}
+.section-alt {
+	background: rgba(255,255,255,0.025);
+}
+.section-label {
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #a78bfa;
+	margin-bottom: 10px;
+}
+.section h2 {
+	font-size: clamp(2rem, 4.5vw, 2.9rem);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: #fff;
+	margin-bottom: 36px;
+	max-width: 640px;
+}
+
+/* ─── Problem ─── */
+.problem-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 18px;
+}
+.problem-card {
+	background: rgba(255,255,255,0.03);
+	border: 1px solid rgba(255,255,255,0.07);
+	border-radius: 10px;
+	padding: 22px 24px;
+}
+.problem-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.problem-card h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #dde1eb;
+	margin-bottom: 8px;
+}
+.problem-card p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
+
+/* ─── Steps ─── */
+.steps {
+	display: flex;
+	flex-direction: column;
+}
+.step {
+	display: flex;
+	gap: 28px;
+	padding: 22px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+	font-family: 'Roboto', system-ui, sans-serif;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: #7c3aed;
+	letter-spacing: 0.05em;
+	flex-shrink: 0;
+	width: 28px;
+	padding-top: 3px;
+}
+.step-body h3 {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #dde1eb;
+	margin-bottom: 6px;
+}
+.step-body p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
+
+/* ─── Differentiators ─── */
+.diff-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 18px;
+}
+.diff-card {
+	padding: 22px 24px;
+	border-radius: 10px;
+	background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(255,255,255,0.02) 100%);
+	border: 1px solid rgba(124,58,237,0.15);
+}
+.diff-icon { font-size: 1.4rem; margin-bottom: 12px; }
+.diff-card h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #dde1eb;
+	margin-bottom: 8px;
+}
+.diff-card p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
+.diff-card em { color: #c4b5fd; font-style: italic; }
+
+/* ─── Features ─── */
+.feature-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 11px 40px;
+}
+.feature-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	font-size: 1rem;
+	color: #8b93a8;
+	line-height: 1.5;
+}
+.check {
+	color: #a78bfa;
+	font-weight: 700;
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+/* ─── Status / Quote ─── */
+blockquote {
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: #bbc3d4;
+	line-height: 1.55;
+	border-left: 3px solid #7c3aed;
+	padding-left: 24px;
+	margin-bottom: 32px;
+}
+blockquote em { color: #a78bfa; font-style: normal; }
+.status-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+.status-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.95rem;
+	color: #6b7280;
+}
+.status-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #374151;
+}
+.status-dot.active {
+	background: #34d399;
+	box-shadow: 0 0 8px rgba(52,211,153,0.5);
+}
+
+/* ─── CTA ─── */
+.section-cta {
+	background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 70%);
+	border-top: 1px solid rgba(255,255,255,0.06);
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-cta h2 {
+	margin-left: auto;
+	margin-right: auto;
+}
+.section-cta p {
+	color: #8b93a8;
+	font-size: 1.1rem;
+	margin-bottom: 28px;
+	line-height: 1.65;
+}
+.cta-note {
+	margin-top: 14px;
+	font-size: 0.9rem;
+	color: #4b5563;
+}
+
+/* ─── Footer ─── */
+footer {
+	padding: 32px 0;
+	border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer .container {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+footer p { font-size: 0.9rem; color: #4b5563; }
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+	.hero { padding: 48px 0 40px; }
+	.section { padding: 48px 0; }
+	.hero-actions { flex-direction: column; align-items: flex-start; }
+	.step { gap: 18px; }
+}
+</style>
