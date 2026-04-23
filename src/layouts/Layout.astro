@@ -2,23 +2,74 @@
 interface Props {
 	title?: string;
 	description?: string;
+	ogImage?: string;
+	canonical?: string;
 }
+
+const SITE_URL = 'https://merlinapp.io';
 
 const {
 	title = 'Merlin — AI Invoice Processing',
 	description = 'Merlin reads supplier PDFs, extracts every line item, and posts transactions inside your own system. No third-party bureau. Your data never leaves.',
+	ogImage = `${SITE_URL}/logo.png`,
+	canonical = SITE_URL,
 } = Astro.props;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'SoftwareApplication',
+	name: 'Merlin',
+	applicationCategory: 'BusinessApplication',
+	operatingSystem: 'Web',
+	description,
+	url: SITE_URL,
+	offers: {
+		'@type': 'Offer',
+		availability: 'https://schema.org/InStock',
+	},
+	featureList: [
+		'AI-powered PDF invoice extraction',
+		'Automatic GL account coding',
+		'Self-hosted — data never leaves your system',
+		'Confidence-scored autonomous posting',
+		'Multi-currency support',
+		'Full audit trail',
+	],
+};
 ---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="index, follow" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Merlin" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content="Merlin — AI Invoice Processing" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Structured data -->
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<title>{title}</title>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;800;900&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
