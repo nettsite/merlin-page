@@ -1,46 +1,45 @@
-# Astro Starter Kit: Basics
+# Merlin — A/B preview deployment
 
-```sh
-npm create astro@latest -- --template basics
+Drop these files into your existing `magical-mercury/` Astro project:
+
+```
+magical-mercury/
+└── src/
+    ├── layouts/
+    │   └── Layout.astro          ← REPLACES existing
+    ├── components/
+    │   ├── PreviewBar.astro      ← NEW
+    │   ├── LogoQuill.astro       ← NEW (Direction A logo)
+    │   ├── LogoSparkle.astro     ← NEW (Direction B logo)
+    │   ├── InvoiceMock.astro     ← NEW (hero product mock)
+    │   └── Modal.astro           ← NEW (request-access form)
+    └── pages/
+        ├── index.astro           ← REPLACES existing (Direction B)
+        └── a.astro               ← NEW (Direction A)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## What this gives you
 
-## 🚀 Project Structure
+- **`/`** → Direction B (Workshop). Crisp white + warm amber. Default.
+- **`/a`** → Direction A (Ledger). Cream paper + ink blue + editorial serif.
+- A slim dark bar at the top of each page tells visitors which version they're on
+  and links to the other.
+- Existing `Welcome.astro` is no longer used — safe to delete, or leave it.
+- Existing modal/contact form behaviour preserved (same API endpoint).
 
-Inside of your Astro project, you'll see the following folders and files:
+## To deploy on Cloudflare Pages
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Just `git push` — Cloudflare will rebuild from the new files and `/`, `/a`
+will both be live. Share both URLs with friends, point them at `/` first;
+they can flip via the top bar.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## After friends weigh in
 
-## 🧞 Commands
+Once you've picked a winner:
 
-All commands are run from the root of the project, from a terminal:
+1. If **B wins**, just delete `src/pages/a.astro` and remove the `<PreviewBar />`
+   import + element from `index.astro`.
+2. If **A wins**, copy the contents of `a.astro` into `index.astro` (changing
+   `variant="A"`), then delete `a.astro` and remove the `<PreviewBar />`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Either way, also drop the `PreviewBar.astro` component file.
