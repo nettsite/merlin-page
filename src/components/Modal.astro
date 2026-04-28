@@ -1,0 +1,232 @@
+---
+// Shared "Request access" modal + its submission script.
+// Drop this once per page; trigger by adding class="modal-trigger" to any button.
+---
+<div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal__close" aria-label="Close">&times;</button>
+    <h2 id="modal-title">Request early access</h2>
+    <p class="modal__intro">Tell us a bit about your business and we'll be in touch.</p>
+    <form novalidate>
+      <div class="modal__honeypot" aria-hidden="true">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="form-row">
+        <label for="m-name">Name</label>
+        <input type="text" id="m-name" name="name" placeholder="Jane Smith" autocomplete="name" />
+      </div>
+      <div class="form-row">
+        <label for="m-email">Email <span class="required">*</span></label>
+        <input type="email" id="m-email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+      </div>
+      <div class="form-row">
+        <label for="m-company">Company</label>
+        <input type="text" id="m-company" name="company" placeholder="Acme Ltd" autocomplete="organization" />
+      </div>
+      <div class="form-row">
+        <label for="m-phone">Phone</label>
+        <input type="tel" id="m-phone" name="phone" placeholder="+27 82 000 0000" autocomplete="tel" />
+      </div>
+      <div class="form-row">
+        <label for="m-message">Message</label>
+        <textarea id="m-message" name="message" rows="3" placeholder="Anything you'd like us to know…"></textarea>
+      </div>
+      <p class="modal__msg" role="alert"></p>
+      <button type="submit" class="btn-primary modal__submit">Send</button>
+    </form>
+    <div class="modal__success">
+      <div class="modal__success-icon">✓</div>
+      <h3>Thanks — we'll be in touch soon.</h3>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-backdrop.is-open { display: flex; }
+.modal {
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 14px;
+  padding: 36px;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  color: var(--ink, #111);
+  font-family: 'Inter', system-ui, sans-serif;
+  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.25);
+}
+.modal h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink, #111);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.modal__intro {
+  font-size: 0.95rem;
+  color: var(--inkSoft, #4b5563);
+  margin-bottom: 24px;
+}
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: var(--muted, #9ca3af);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.modal__close:hover { color: var(--ink, #111); }
+.modal__honeypot { display: none; }
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.form-row label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--inkSoft, #4b5563);
+}
+.required { color: var(--accent, #C8772E); }
+.form-row input,
+.form-row textarea {
+  background: var(--bg, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 7px;
+  color: var(--ink, #111);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  padding: 10px 13px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+}
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent, #C8772E);
+  box-shadow: 0 0 0 3px var(--accentSoft, rgba(200,119,46,0.18));
+}
+.form-row input.is-invalid,
+.form-row textarea.is-invalid { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }
+.form-row textarea { resize: vertical; }
+.modal__msg {
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin-bottom: 14px;
+}
+.modal__msg--error { color: #dc2626; }
+.modal__msg--success { color: #059669; }
+.modal__submit { width: 100%; justify-content: center; border: none; cursor: pointer; }
+.modal__submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.modal__success { display: none; text-align: center; padding: 20px 0; }
+.modal__success-icon {
+  font-size: 2.5rem;
+  color: #059669;
+  margin-bottom: 12px;
+}
+.modal__success h3 { font-size: 1.2rem; color: var(--ink, #111); font-weight: 700; }
+.modal--success form { display: none; }
+.modal--success .modal__intro { display: none; }
+.modal--success .modal__success { display: block; }
+</style>
+
+<script>
+const API = 'https://api.nettsite.co.za/api/contact';
+
+const backdrop   = document.querySelector('.modal-backdrop');
+const modalEl    = document.querySelector('.modal');
+const modalClose = document.querySelector('.modal__close');
+const modalForm  = document.querySelector('.modal form') as HTMLFormElement | null;
+const modalMsg   = document.querySelector('.modal__msg');
+
+function openModal() {
+  if (!backdrop) return;
+  backdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  (backdrop.querySelector('input:not([type=hidden])') as HTMLElement | null)?.focus();
+}
+
+function closeModal() {
+  if (!backdrop) return;
+  backdrop.classList.remove('is-open');
+  document.body.style.overflow = '';
+  modalEl?.classList.remove('modal--success');
+  if (modalMsg) { modalMsg.className = 'modal__msg'; modalMsg.textContent = ''; }
+  modalForm?.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+}
+
+document.querySelectorAll('.modal-trigger').forEach(btn => btn.addEventListener('click', openModal));
+modalClose?.addEventListener('click', closeModal);
+backdrop?.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+modalForm?.querySelectorAll('input, textarea').forEach(el => {
+  el.addEventListener('input', () => (el as HTMLElement).classList.remove('is-invalid'));
+});
+
+modalForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const honeypot = modalForm.querySelector<HTMLInputElement>('.modal__honeypot input');
+  if (honeypot?.value) return;
+
+  const emailField = modalForm.querySelector<HTMLInputElement>('[name=email]')!;
+  const email = emailField.value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    emailField.classList.add('is-invalid');
+    emailField.focus();
+    if (modalMsg) { modalMsg.className = 'modal__msg modal__msg--error'; modalMsg.textContent = 'Please enter a valid email address.'; }
+    return;
+  }
+
+  const submitBtn = modalForm.querySelector<HTMLButtonElement>('[type=submit]')!;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+  if (modalMsg) { modalMsg.className = 'modal__msg'; modalMsg.textContent = ''; }
+
+  const data = {
+    name:    modalForm.querySelector<HTMLInputElement>('[name=name]')?.value ?? '',
+    email,
+    company: modalForm.querySelector<HTMLInputElement>('[name=company]')?.value ?? '',
+    phone:   modalForm.querySelector<HTMLInputElement>('[name=phone]')?.value ?? '',
+    message: modalForm.querySelector<HTMLTextAreaElement>('[name=message]')?.value ?? '',
+  };
+
+  try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error('Server error');
+    modalForm.reset();
+    modalEl?.classList.add('modal--success');
+  } catch {
+    if (modalMsg) {
+      modalMsg.className = 'modal__msg modal__msg--error';
+      modalMsg.textContent = 'Something went wrong. Please try again or email us directly.';
+    }
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send';
+  }
+});
+</script>

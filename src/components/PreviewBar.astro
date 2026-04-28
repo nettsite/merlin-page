@@ -1,0 +1,66 @@
+---
+interface Props {
+  variant: 'A' | 'B';
+}
+const { variant } = Astro.props;
+const otherUrl = variant === 'A' ? '/' : '/a';
+const otherLabel = variant === 'A' ? 'Version B' : 'Version A';
+const thisLabel = variant === 'A' ? 'Version A · Ledger' : 'Version B · Workshop';
+---
+<div class="preview-bar">
+  <div class="preview-bar__inner">
+    <div class="preview-bar__left">
+      <span class="preview-bar__dot" aria-hidden="true"></span>
+      <span class="preview-bar__label">Preview · {thisLabel}</span>
+    </div>
+    <div class="preview-bar__right">
+      <span class="preview-bar__hint">Comparing two designs —</span>
+      <a href={otherUrl} class="preview-bar__link">View {otherLabel} →</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.preview-bar {
+  background: #111827;
+  color: #e5e7eb;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 110;
+}
+.preview-bar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.preview-bar__left { display: flex; align-items: center; gap: 10px; }
+.preview-bar__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
+}
+.preview-bar__label { font-weight: 500; color: #f3f4f6; }
+.preview-bar__right { display: flex; align-items: center; gap: 8px; }
+.preview-bar__hint { color: #9ca3af; }
+.preview-bar__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+.preview-bar__link:hover { border-bottom-color: #fff; }
+
+@media (max-width: 640px) {
+  .preview-bar__inner { padding: 8px 20px; }
+  .preview-bar__hint { display: none; }
+}
+</style>

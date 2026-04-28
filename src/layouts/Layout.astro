@@ -1,102 +1,143 @@
 ---
 interface Props {
-	title?: string;
-	description?: string;
-	ogImage?: string;
-	canonical?: string;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  variant?: 'A' | 'B';
 }
 
 const SITE_URL = 'https://merlinapp.io';
 
 const {
-	title = 'Merlin — AI Invoice Processing',
-	description = 'Merlin reads supplier PDFs, extracts every line item, and posts transactions inside your own system. No third-party bureau. Your data never leaves.',
-	ogImage = `${SITE_URL}/logo.png`,
-	canonical = SITE_URL,
+  title = 'Merlin — AI Invoice Processing',
+  description = 'Merlin reads supplier PDFs, extracts every line item, and posts transactions inside your own system. No third-party bureau. Your data never leaves.',
+  ogImage = `${SITE_URL}/logo.png`,
+  canonical = SITE_URL,
+  variant = 'B',
 } = Astro.props;
 
 const jsonLd = {
-	'@context': 'https://schema.org',
-	'@type': 'SoftwareApplication',
-	name: 'Merlin',
-	applicationCategory: 'BusinessApplication',
-	operatingSystem: 'Web',
-	description,
-	url: SITE_URL,
-	offers: {
-		'@type': 'Offer',
-		availability: 'https://schema.org/InStock',
-	},
-	featureList: [
-		'AI-powered PDF invoice extraction',
-		'Automatic GL account coding',
-		'Self-hosted — data never leaves your system',
-		'Confidence-scored autonomous posting',
-		'Multi-currency support',
-		'Full audit trail',
-	],
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Merlin',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description,
+  url: SITE_URL,
+  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock' },
+  featureList: [
+    'AI-powered PDF invoice extraction',
+    'Automatic GL account coding',
+    'Self-hosted — data never leaves your system',
+    'Confidence-scored autonomous posting',
+    'Multi-currency support',
+    'Full audit trail',
+  ],
 };
 ---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="robots" content="index, follow" />
+<html lang="en" data-variant={variant}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
 
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
-		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Merlin" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonical} />
-		<meta property="og:image" content={ogImage} />
-		<meta property="og:image:alt" content="Merlin — AI Invoice Processing" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Merlin" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Merlin — AI Invoice Processing" />
 
-		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
-		<!-- Structured data -->
-		<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="icon" type="image/png" href="/mark.png" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/mark.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;800;900&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
-	</head>
-	<body>
-		<slot />
-	</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	*, *::before, *::after {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
 
-	html {
-		font-family: 'Source Sans 3', system-ui, sans-serif;
-		background: #0a0f1e;
-		color: #c2c8d6;
-		scroll-behavior: smooth;
-	}
+  /* ─────────────────────────────────────────
+     THEME — Direction B (Workshop) is default
+     ───────────────────────────────────────── */
+  html[data-variant='B'] {
+    --bg: #FFFFFF;
+    --bgAlt: #FAF8F4;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --inkSoft: #4D4D4D;
+    --muted: #8A8580;
+    --border: #EAE6DF;
+    --accent: #C8772E;
+    --accentOn: #FFFFFF;
+    --accentInk: #9A4F12;
+    --accentSoft: #FCEFDF;
+    --accentBorder: #F2D9B7;
+    --chrome: #FAF8F4;
+    --shadow: 0 1px 0 rgba(0,0,0,0.02), 0 18px 40px -16px rgba(26,26,26,0.14);
+    --fontDisplay: 'Inter', system-ui, sans-serif;
+  }
 
-	body {
-		min-height: 100vh;
-		line-height: 1.6;
-		-webkit-font-smoothing: antialiased;
-	}
+  /* ─────────────────────────────────────────
+     THEME — Direction A (Ledger)
+     ───────────────────────────────────────── */
+  html[data-variant='A'] {
+    --bg: #F5F0E6;
+    --bgAlt: #EDE6D6;
+    --surface: #FFFFFF;
+    --ink: #0F1B3D;
+    --inkSoft: #3B4566;
+    --muted: #7A7263;
+    --border: #E5DCC7;
+    --accent: #0F1B3D;
+    --accentOn: #F5F0E6;
+    --accentInk: #0F1B3D;
+    --accentSoft: #EFE6D2;
+    --accentBorder: #D9CDB3;
+    --chrome: #FAF6EC;
+    --shadow: 0 1px 0 rgba(15,27,61,0.04), 0 12px 40px -12px rgba(15,27,61,0.18);
+    --fontDisplay: 'Fraunces', 'Source Serif Pro', Georgia, serif;
+  }
 </style>

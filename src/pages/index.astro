@@ -1,734 +1,436 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PreviewBar from '../components/PreviewBar.astro';
+import LogoSparkle from '../components/LogoSparkle.astro';
+import InvoiceMock from '../components/InvoiceMock.astro';
+import Modal from '../components/Modal.astro';
 ---
-<Layout>
+<Layout variant="B" title="Merlin — AI Invoice Processing">
+  <PreviewBar variant="B" />
 
-<!-- Nav -->
-<nav>
-	<div class="nav-inner">
-		<img src="/logo.png" alt="Merlin" class="logo" />
-		<button class="nav-cta modal-trigger">Request access</button>
-	</div>
-</nav>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <LogoSparkle height={28} />
+      <div class="nav__right">
+        <a href="#how-it-works" class="nav__link">How it works</a>
+        <a href="#why-merlin" class="nav__link">Why Merlin</a>
+        <a href="#features" class="nav__link">Features</a>
+        <button class="nav__cta modal-trigger" type="button">Request access</button>
+      </div>
+    </div>
+  </nav>
 
-<!-- Hero -->
-<section class="hero">
-	<div class="container">
-		<div class="badge">AI-powered · Self-hosted · In active use</div>
-		<h1>Invoice processing that learns your business — and lives inside your books.</h1>
-		<p class="hero-sub">
-			Merlin reads supplier PDFs, extracts every line item, suggests GL accounts, and posts transactions — inside your own system. It learns your specific business with every invoice it processes.
-		</p>
-		<div class="hero-actions">
-			<button class="btn-primary modal-trigger">Request early access</button>
-			<a href="#how-it-works" class="btn-ghost">See how it works</a>
-		</div>
-		<p class="hero-note">Your data never leaves your system. No processing bureau. No outsourcing.</p>
-	</div>
-</section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">
+        <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 1l1.8 4.2L14 7l-4.2 1.8L8 13l-1.8-4.2L2 7l4.2-1.8z" fill="currentColor"/>
+        </svg>
+        AI-powered · Self-hosted · In active use
+      </div>
+      <h1 class="hero__title">
+        Invoice processing that learns your business —
+        <span class="hero__title-accent">and lives inside your books.</span>
+      </h1>
+      <p class="hero__sub">
+        Merlin reads supplier PDFs, extracts every line item, suggests GL accounts, and posts transactions —
+        inside your own system. It learns your specific business with every invoice it processes.
+      </p>
+      <div class="hero__actions">
+        <button class="btn-primary modal-trigger" type="button">
+          Request early access <span class="hero__arrow">→</span>
+        </button>
+        <a href="#how-it-works" class="btn-secondary">See how it works</a>
+        <span class="hero__note">Your data never leaves your system.</span>
+      </div>
+      <div class="hero__mock">
+        <InvoiceMock />
+      </div>
+    </div>
+  </section>
 
-<!-- Problem -->
-<section class="section" id="problem">
-	<div class="container">
-		<div class="section-label">The problem</div>
-		<h2>Every invoice still needs someone to open it, code it, and key it in.</h2>
-		<div class="problem-grid">
-			<div class="problem-card">
-				<div class="problem-icon">📄</div>
-				<h3>PDFs arrive. Someone opens each one.</h3>
-				<p>Keys the figures into accounting software. Assigns accounts. Files the document. Repeat — every single invoice, every week.</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-icon">💸</div>
-				<h3>Outsource it and you're paying for data entry.</h3>
-				<p>Your financials leave your system. Someone else's hands touch your supplier relationships and spending patterns. Then they send it back.</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-icon">🤖</div>
-				<h3>Generic AI doesn't know your business.</h3>
-				<p>Off-the-shelf tools guess at account codes based on general patterns. They don't know that your Supplier A always goes to account 5100.</p>
-			</div>
-		</div>
-	</div>
-</section>
+  <!-- Problem -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section__label">The problem</div>
+      <h2 class="section__title">Every invoice still needs someone to open it, code it, and key it in.</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="5" y="3" width="14" height="18" rx="1.5" />
+              <line x1="8" y1="8" x2="16" y2="8" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+              <line x1="8" y1="16" x2="13" y2="16" />
+            </svg>
+          </div>
+          <h3>PDFs arrive. Someone opens each one.</h3>
+          <p>Keys the figures into accounting software. Assigns accounts. Files the document. Repeats — every single invoice, every week.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 8 L21 8 L21 19 Q21 20 20 20 L4 20 Q3 20 3 19 Z" />
+              <path d="M7 8 L7 5 Q7 4 8 4 L16 4 Q17 4 17 5 L17 8" />
+              <line x1="12" y1="12" x2="12" y2="16" />
+            </svg>
+          </div>
+          <h3>Outsource it and you're paying for data entry.</h3>
+          <p>Your financials leave your system. Someone else's hands touch your supplier relationships and spending patterns. Then they send it back.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9 9 Q12 6 15 9" />
+              <circle cx="9.5" cy="13" r="0.8" fill="currentColor" />
+              <circle cx="14.5" cy="13" r="0.8" fill="currentColor" />
+              <line x1="9" y1="17" x2="15" y2="17" />
+            </svg>
+          </div>
+          <h3>Generic AI doesn't know your business.</h3>
+          <p>Off-the-shelf tools guess at account codes from general patterns. They don't know that your Supplier A always goes to account 5100.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- How it works -->
-<section class="section section-alt" id="how-it-works">
-	<div class="container">
-		<div class="section-label">How it works</div>
-		<h2>Four steps — from supplier PDF to posted transaction.</h2>
-		<div class="steps">
-			<div class="step">
-				<div class="step-num">01</div>
-				<div class="step-body">
-					<h3>Invoice arrives</h3>
-					<p>Upload a PDF manually, or drop it into a watched folder for hands-free batch ingestion. Merlin accepts any supplier format.</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">02</div>
-				<div class="step-body">
-					<h3>Merlin extracts everything</h3>
-					<p>Supplier, invoice number, date, due date, every line item, tax, totals. Multi-currency invoices handled with live exchange rates.</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">03</div>
-				<div class="step-body">
-					<h3>Account codes suggested from your history</h3>
-					<p>Merlin checks how you've coded this supplier before and applies the same logic — getting more accurate every month.</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">04</div>
-				<div class="step-body">
-					<h3>High confidence → auto-posted. Low confidence → review queue.</h3>
-					<p>You set the threshold. Nothing hits the ledger without meeting it. Every AI decision is logged with confidence scores.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+  <!-- How it works -->
+  <section class="section section--alt" id="how-it-works">
+    <div class="container">
+      <div class="section__label">How it works</div>
+      <h2 class="section__title">Four steps — from supplier PDF to posted transaction.</h2>
+      <div class="steps">
+        <div class="steps__line" aria-hidden="true"></div>
+        <div class="step">
+          <div class="step__num">01</div>
+          <h3>Invoice arrives</h3>
+          <p>Upload a PDF or drop into a watched folder for hands-free batch ingestion.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <h3>Merlin extracts everything</h3>
+          <p>Supplier, dates, every line item, tax, totals. Multi-currency with live rates.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <h3>Suggests account codes</h3>
+          <p>From your own posting history — getting more accurate every month.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <h3>Posts or queues for review</h3>
+          <p>High confidence, auto-posted. Low confidence, review queue. You set the threshold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Differentiators -->
-<section class="section" id="why-merlin">
-	<div class="container">
-		<div class="section-label">Why Merlin</div>
-		<h2>AI that knows your suppliers, your accounts, and your preferences.</h2>
-		<div class="diff-grid">
-			<div class="diff-card">
-				<div class="diff-icon">🔒</div>
-				<h3>Your data never leaves</h3>
-				<p>Merlin runs inside your own environment. Every invoice, every GL posting, every AI decision lives in your database — under your control, with a full audit trail. No third-party access.</p>
-			</div>
-			<div class="diff-card">
-				<div class="diff-icon">🧠</div>
-				<h3>Learns your business specifically</h3>
-				<p>Not generic accounting patterns — your suppliers, your accounts, your preferences. The more you use it, the smarter it gets for <em>you</em>.</p>
-			</div>
-			<div class="diff-card">
-				<div class="diff-icon">✅</div>
-				<h3>Human review where it counts</h3>
-				<p>Speed of automation on invoices Merlin knows well. Clear review queue for anything unusual. No silent errors buried in your accounts.</p>
-			</div>
-			<div class="diff-card">
-				<div class="diff-icon">📒</div>
-				<h3>Proper double-entry ledger</h3>
-				<p>Not a simplified tracker. Full chart of accounts, tax rate handling, document sequencing. Built to support real bookkeeping work — just without the data entry.</p>
-			</div>
-		</div>
-	</div>
-</section>
+  <!-- Why Merlin -->
+  <section class="section" id="why-merlin">
+    <div class="container">
+      <div class="section__label">Why Merlin</div>
+      <h2 class="section__title">AI that knows your suppliers, your accounts, and your preferences.</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-card__tag">Privacy</div>
+          <h3>Your data never leaves</h3>
+          <p>Merlin runs inside your own environment. Every invoice, every GL posting, every AI decision lives in your database — under your control, with a full audit trail.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__tag">Personalised</div>
+          <h3>Learns your business specifically</h3>
+          <p>Not generic accounting patterns — your suppliers, your accounts, your preferences. The more you use it, the smarter it gets for <em>you</em>.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__tag">Oversight</div>
+          <h3>Human review where it counts</h3>
+          <p>Speed of automation on invoices Merlin knows well. A clear review queue for anything unusual. No silent errors buried in your accounts.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__tag">Real bookkeeping</div>
+          <h3>Proper double-entry ledger</h3>
+          <p>Not a simplified tracker. Full chart of accounts, tax rate handling, document sequencing. Built to support real bookkeeping work — without the data entry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Features -->
-<section class="section section-alt" id="features">
-	<div class="container">
-		<div class="section-label">What's included</div>
-		<h2>Every step covered, from invoice to ledger.</h2>
-		<ul class="feature-list">
-			<li><span class="check">✓</span> PDF invoice ingestion — upload or watched folder batch processing</li>
-			<li><span class="check">✓</span> Intelligent extraction — supplier, line items, tax, totals</li>
-			<li><span class="check">✓</span> Multi-currency support — live rates, finalised at payment</li>
-			<li><span class="check">✓</span> Account code suggestion from your own posting history</li>
-			<li><span class="check">✓</span> Autonomous posting rules — condition-based auto-approval</li>
-			<li><span class="check">✓</span> Review queue for anything that needs a human eye</li>
-			<li><span class="check">✓</span> Payables tracking — outstanding balances and due dates</li>
-			<li><span class="check">✓</span> Expense reporting by account and supplier</li>
-			<li><span class="check">✓</span> Full audit trail — every action and AI decision logged</li>
-			<li><span class="check">✓</span> Multi-tenant — separate books per entity, landlord admin panel</li>
-		</ul>
-	</div>
-</section>
+  <!-- Features -->
+  <section class="section section--alt" id="features">
+    <div class="container">
+      <div class="section__label">What's included</div>
+      <h2 class="section__title">Every step covered, from invoice to ledger.</h2>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> PDF invoice ingestion — upload or watched folder batch processing</li>
+        <li><span class="check">✓</span> Intelligent extraction — supplier, line items, tax, totals</li>
+        <li><span class="check">✓</span> Multi-currency support — live rates, finalised at payment</li>
+        <li><span class="check">✓</span> Account code suggestion from your own posting history</li>
+        <li><span class="check">✓</span> Autonomous posting rules — condition-based auto-approval</li>
+        <li><span class="check">✓</span> Review queue for anything that needs a human eye</li>
+        <li><span class="check">✓</span> Payables tracking — outstanding balances and due dates</li>
+        <li><span class="check">✓</span> Expense reporting by account and supplier</li>
+        <li><span class="check">✓</span> Full audit trail — every action and AI decision logged</li>
+        <li><span class="check">✓</span> Multi-tenant — separate books per entity, landlord admin panel</li>
+      </ul>
+    </div>
+  </section>
 
-<!-- Social proof / status -->
-<section class="section" id="status">
-	<div class="container narrow">
-		<blockquote>
-			"The difference between generic AI and Merlin is that Merlin knows <em>your</em> business — not just accounting in general."
-		</blockquote>
-		<div class="status-bar">
-			<div class="status-item">
-				<span class="status-dot active"></span>
-				Core pipeline in production
-			</div>
-			<div class="status-item">
-				<span class="status-dot active"></span>
-				Multi-tenant live
-			</div>
-			<div class="status-item">
-				<span class="status-dot active"></span>
-				Early access open
-			</div>
-		</div>
-	</div>
-</section>
+  <!-- Pullquote / status -->
+  <section class="section pullquote">
+    <div class="container container--narrow center">
+      <svg class="pullquote__marks" width="36" height="28" viewBox="0 0 36 28" aria-hidden="true">
+        <path d="M0 28 L0 14 Q0 4 8 0 L10 4 Q5 6 5 12 L11 12 L11 28 Z M21 28 L21 14 Q21 4 29 0 L31 4 Q26 6 26 12 L32 12 L32 28 Z" fill="currentColor"/>
+      </svg>
+      <p class="pullquote__text">
+        Generic AI knows accounting in general.<br/>
+        <span class="pullquote__accent">Merlin knows yours.</span>
+      </p>
+      <div class="status-bar">
+        <div class="status-item"><span class="status-dot"></span> Core pipeline in production</div>
+        <div class="status-item"><span class="status-dot"></span> Multi-tenant live</div>
+        <div class="status-item"><span class="status-dot"></span> Early access open</div>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section class="section section-cta" id="contact">
-	<div class="container narrow center">
-		<h2>Replace your invoice data entry cost.</h2>
-		<p>If you're currently paying someone to key invoices into your accounting software, Merlin is a direct replacement — with a ledger that's always up to date and a record of exactly how every decision was made.</p>
-		<button class="btn-primary large modal-trigger">Get in touch</button>
-		<p class="cta-note">No sales funnel. Just a conversation about your use case.</p>
-	</div>
-</section>
+  <!-- CTA -->
+  <section class="cta-wrap" id="contact">
+    <div class="container">
+      <div class="cta">
+        <svg class="cta__sparkle" width="180" height="180" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 10 L55 45 L90 50 L55 55 L50 90 L45 55 L10 50 L45 45 Z" fill="var(--accent)"/>
+        </svg>
+        <h2 class="cta__title">Replace your invoice <span class="cta__accent">data entry cost.</span></h2>
+        <p class="cta__sub">
+          If you're currently paying someone to key invoices into your accounting software,
+          Merlin is a direct replacement — with a ledger that's always up to date.
+        </p>
+        <button class="btn-cta modal-trigger" type="button">Get in touch  →</button>
+        <p class="cta__note">No sales funnel. Just a conversation about your use case.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Modal -->
-<div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-	<div class="modal">
-		<button class="modal__close" aria-label="Close">&times;</button>
-		<h2 id="modal-title">Request early access</h2>
-		<p class="modal__intro">Tell us a bit about your business and we'll be in touch.</p>
-		<form novalidate>
-			<div class="modal__honeypot" aria-hidden="true">
-				<input type="text" name="website" tabindex="-1" autocomplete="off" />
-			</div>
-			<div class="form-row">
-				<label for="m-name">Name</label>
-				<input type="text" id="m-name" name="name" placeholder="Jane Smith" autocomplete="name" />
-			</div>
-			<div class="form-row">
-				<label for="m-email">Email <span class="required">*</span></label>
-				<input type="email" id="m-email" name="email" placeholder="jane@example.com" autocomplete="email" required />
-			</div>
-			<div class="form-row">
-				<label for="m-company">Company</label>
-				<input type="text" id="m-company" name="company" placeholder="Acme Ltd" autocomplete="organization" />
-			</div>
-			<div class="form-row">
-				<label for="m-phone">Phone</label>
-				<input type="tel" id="m-phone" name="phone" placeholder="+27 82 000 0000" autocomplete="tel" />
-			</div>
-			<div class="form-row">
-				<label for="m-message">Message</label>
-				<textarea id="m-message" name="message" rows="3" placeholder="Anything you'd like us to know…"></textarea>
-			</div>
-			<p class="modal__msg" role="alert"></p>
-			<button type="submit" class="btn-primary modal__submit">Send</button>
-		</form>
-		<div class="modal__success">
-			<div class="modal__success-icon">✓</div>
-			<h3>Thanks — we'll be in touch soon.</h3>
-		</div>
-	</div>
-</div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <LogoSparkle height={22} />
+      <p>AI-powered invoice processing · Self-hosted · Built for small businesses</p>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer>
-	<div class="container">
-		<img src="/logo.png" alt="Merlin" class="logo" />
-		<p>AI-powered invoice processing. Self-hosted. Built for small businesses.</p>
-	</div>
-</footer>
-
+  <Modal />
 </Layout>
 
 <style>
-/* ─── Layout ─── */
-.container {
-	max-width: 1100px;
-	margin: 0 auto;
-	padding: 0 28px;
-}
-.container.narrow { max-width: 740px; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+.container--narrow { max-width: 880px; }
 .center { text-align: center; }
 
-/* ─── Headings ─── */
-h1, h2, h3 {
-	font-family: 'Roboto', system-ui, sans-serif;
+/* Nav */
+.nav {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 90;
 }
+.nav__inner { max-width: 1240px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; }
+.nav__right { display: flex; align-items: center; gap: 32px; }
+.nav__link { font-size: 14px; color: var(--inkSoft); font-weight: 500; transition: color 0.15s; }
+.nav__link:hover { color: var(--ink); }
+.nav__cta {
+  font-size: 14px; font-weight: 600; color: var(--accentOn); background: var(--ink);
+  border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer;
+  transition: transform 0.1s, opacity 0.15s;
+}
+.nav__cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
-/* ─── Nav ─── */
-nav {
-	position: sticky;
-	top: 0;
-	z-index: 100;
-	background: rgba(10, 15, 30, 0.88);
-	backdrop-filter: blur(12px);
-	border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.nav-inner {
-	max-width: 1100px;
-	margin: 0 auto;
-	padding: 14px 28px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-.logo {
-	height: 80px;
-	width: auto;
-	display: block;
-}
-.nav-cta {
-	font-size: 0.95rem;
-	font-weight: 600;
-	color: #a78bfa;
-	text-decoration: none;
-	padding: 8px 18px;
-	border: 1px solid rgba(167,139,250,0.4);
-	border-radius: 6px;
-	transition: all 0.15s;
-}
-.nav-cta:hover {
-	background: rgba(167,139,250,0.1);
-	border-color: #a78bfa;
-}
-
-/* ─── Hero ─── */
+/* Hero */
 .hero {
-	padding: 64px 0 52px;
-	background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,0.18) 0%, transparent 60%);
+  padding: 80px 0 64px;
+  background: linear-gradient(180deg, var(--bgAlt) 0%, var(--bg) 100%);
 }
-.badge {
-	display: inline-block;
-	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	color: #a78bfa;
-	background: rgba(124,58,237,0.12);
-	border: 1px solid rgba(124,58,237,0.3);
-	border-radius: 100px;
-	padding: 5px 14px;
-	margin-bottom: 22px;
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 500; color: var(--accentInk);
+  background: var(--accentSoft); border: 1px solid var(--accentBorder);
+  padding: 6px 12px 6px 10px; border-radius: 999px; margin-bottom: 28px;
 }
-.hero h1 {
-	font-size: clamp(2.5rem, 5vw, 4rem);
-	font-weight: 900;
-	line-height: 1.05;
-	letter-spacing: -0.03em;
-	color: #ffffff;
-	margin-bottom: 20px;
+.hero__badge svg { color: var(--accent); }
+.hero__title {
+  font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+  font-weight: 700; line-height: 1.02; letter-spacing: -0.035em;
+  color: var(--ink); max-width: 920px; margin-bottom: 24px;
 }
-.hero-sub {
-	font-size: 1.3rem;
-	color: #a8afc0;
-	max-width: 580px;
-	line-height: 1.65;
-	margin-bottom: 30px;
+.hero__title-accent { color: var(--accent); }
+.hero__sub {
+  font-size: 1.2rem; line-height: 1.6; color: var(--inkSoft);
+  max-width: 640px; margin-bottom: 36px;
 }
-.hero-actions {
-	display: flex;
-	gap: 16px;
-	flex-wrap: wrap;
-	align-items: center;
-	margin-bottom: 16px;
+.hero__actions {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 56px;
 }
-.hero-note {
-	font-size: 0.9rem;
-	color: #6b7280;
-}
+.hero__arrow { color: var(--accent); }
+.hero__note { font-size: 13px; color: var(--muted); }
+.hero__mock { max-width: 1100px; margin: 0 auto; }
 
-/* ─── Buttons ─── */
+/* Buttons */
 .btn-primary {
-	display: inline-block;
-	background: #7c3aed;
-	color: #fff;
-	font-family: 'Source Sans 3', system-ui, sans-serif;
-	font-weight: 600;
-	font-size: 1.05rem;
-	padding: 13px 28px;
-	border-radius: 8px;
-	text-decoration: none;
-	transition: background 0.15s, transform 0.1s;
+  font-size: 15px; font-weight: 600; color: var(--accentOn); background: var(--ink);
+  border: none; padding: 14px 24px; border-radius: 8px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: transform 0.1s, opacity 0.15s;
 }
-.btn-primary:hover { background: #6d28d9; transform: translateY(-1px); }
-.btn-primary.large { font-size: 1.15rem; padding: 15px 34px; }
-.btn-ghost {
-	display: inline-block;
-	color: #8b93a8;
-	font-weight: 500;
-	font-size: 1.05rem;
-	text-decoration: none;
-	padding: 13px 4px;
-	border-bottom: 1px solid transparent;
-	transition: color 0.15s, border-color 0.15s;
+.btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+.btn-secondary {
+  font-size: 15px; color: var(--ink); font-weight: 500;
+  padding: 13px 18px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); transition: border-color 0.15s, background 0.15s;
 }
-.btn-ghost:hover { color: #c2c8d6; border-color: #6b7280; }
+.btn-secondary:hover { border-color: var(--ink); }
 
-/* ─── Sections ─── */
-.section {
-	padding: 60px 0;
+/* Sections */
+.section { padding: 100px 0; }
+.section--alt { background: var(--bgAlt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section__label {
+  font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 600; color: var(--accent); margin-bottom: 14px;
 }
-.section-alt {
-	background: rgba(255,255,255,0.025);
-}
-.section-label {
-	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: #a78bfa;
-	margin-bottom: 10px;
-}
-.section h2 {
-	font-size: clamp(2rem, 4.5vw, 2.9rem);
-	font-weight: 800;
-	letter-spacing: -0.03em;
-	color: #fff;
-	margin-bottom: 36px;
-	max-width: 640px;
+.section__title {
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.025em; color: var(--ink);
+  max-width: 780px; margin-bottom: 56px;
 }
 
-/* ─── Problem ─── */
-.problem-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 18px;
-}
+/* Problem */
+.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .problem-card {
-	background: rgba(255,255,255,0.03);
-	border: 1px solid rgba(255,255,255,0.07);
-	border-radius: 10px;
-	padding: 22px 24px;
+  background: var(--bgAlt); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px;
 }
-.problem-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.problem-card__icon {
+  width: 44px; height: 44px; border-radius: 10px; background: var(--accentSoft);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
 .problem-card h3 {
-	font-size: 1.1rem;
-	font-weight: 700;
-	color: #dde1eb;
-	margin-bottom: 8px;
+  font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--ink);
+  margin-bottom: 10px; letter-spacing: -0.01em;
 }
-.problem-card p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
+.problem-card p { font-size: 14.5px; line-height: 1.6; color: var(--inkSoft); }
 
-/* ─── Steps ─── */
+/* Steps */
 .steps {
-	display: flex;
-	flex-direction: column;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;
 }
-.step {
-	display: flex;
-	gap: 28px;
-	padding: 22px 0;
-	border-bottom: 1px solid rgba(255,255,255,0.06);
+.steps__line {
+  position: absolute; top: 22px; left: 12.5%; right: 12.5%; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--accentBorder), var(--accentBorder) 4px, transparent 4px, transparent 8px);
 }
-.step:last-child { border-bottom: none; }
-.step-num {
-	font-family: 'Roboto', system-ui, sans-serif;
-	font-size: 0.8rem;
-	font-weight: 700;
-	color: #7c3aed;
-	letter-spacing: 0.05em;
-	flex-shrink: 0;
-	width: 28px;
-	padding-top: 3px;
+.step { padding: 0 16px; text-align: center; position: relative; }
+.step__num {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--bg);
+  border: 1.5px solid var(--accent); color: var(--accent);
+  font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px; letter-spacing: 0.02em;
 }
-.step-body h3 {
-	font-size: 1.15rem;
-	font-weight: 700;
-	color: #dde1eb;
-	margin-bottom: 6px;
-}
-.step-body p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
+.step h3 { font-size: 16.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
+.step p { font-size: 14px; line-height: 1.55; color: var(--inkSoft); }
 
-/* ─── Differentiators ─── */
-.diff-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	gap: 18px;
-}
+/* Why Merlin */
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .diff-card {
-	padding: 22px 24px;
-	border-radius: 10px;
-	background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(255,255,255,0.02) 100%);
-	border: 1px solid rgba(124,58,237,0.15);
+  border: 1px solid var(--border); border-radius: 12px; padding: 32px; background: var(--surface);
 }
-.diff-icon { font-size: 1.4rem; margin-bottom: 12px; }
+.diff-card__tag {
+  font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.1em;
+  font-weight: 600; color: var(--accent); margin-bottom: 12px;
+}
 .diff-card h3 {
-	font-size: 1.1rem;
-	font-weight: 700;
-	color: #dde1eb;
-	margin-bottom: 8px;
+  font-size: 22px; font-weight: 700; line-height: 1.2; color: var(--ink);
+  margin-bottom: 12px; letter-spacing: -0.02em;
 }
-.diff-card p { font-size: 1rem; color: #8b93a8; line-height: 1.6; }
-.diff-card em { color: #c4b5fd; font-style: italic; }
+.diff-card p { font-size: 15px; line-height: 1.6; color: var(--inkSoft); }
+.diff-card em { color: var(--accentInk); font-style: italic; }
 
-/* ─── Features ─── */
+/* Features */
 .feature-list {
-	list-style: none;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	gap: 11px 40px;
+  list-style: none; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 12px 28px;
 }
 .feature-list li {
-	display: flex;
-	align-items: flex-start;
-	gap: 12px;
-	font-size: 1rem;
-	color: #8b93a8;
-	line-height: 1.5;
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 16px; font-size: 14.5px; color: var(--ink); line-height: 1.5;
 }
 .check {
-	color: #a78bfa;
-	font-weight: 700;
-	flex-shrink: 0;
-	margin-top: 1px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accentSoft); color: var(--accent);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 13px; font-weight: 700;
 }
 
-/* ─── Status / Quote ─── */
-blockquote {
-	font-size: 1.4rem;
-	font-weight: 500;
-	color: #bbc3d4;
-	line-height: 1.55;
-	border-left: 3px solid #7c3aed;
-	padding-left: 24px;
-	margin-bottom: 32px;
+/* Pullquote */
+.pullquote { padding: 100px 0; }
+.pullquote__marks { color: var(--accent); margin-bottom: 24px; opacity: 0.9; }
+.pullquote__text {
+  font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 500; line-height: 1.35;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px;
 }
-blockquote em { color: #a78bfa; font-style: normal; }
-.status-bar {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 24px;
-}
-.status-item {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	font-size: 0.95rem;
-	color: #6b7280;
-}
+.pullquote__accent { color: var(--accent); }
+.status-bar { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.status-item { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--inkSoft); }
 .status-dot {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #374151;
-}
-.status-dot.active {
-	background: #34d399;
-	box-shadow: 0 0 8px rgba(52,211,153,0.5);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #3B7A4E; box-shadow: 0 0 0 3px rgba(59,122,78,0.15);
 }
 
-/* ─── CTA ─── */
-.section-cta {
-	background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 70%);
-	border-top: 1px solid rgba(255,255,255,0.06);
-	border-bottom: 1px solid rgba(255,255,255,0.06);
+/* CTA */
+.cta-wrap { padding: 0 0 100px; }
+.cta {
+  background: var(--ink); border-radius: 20px; padding: 72px 56px;
+  text-align: center; position: relative; overflow: hidden;
+  max-width: 1100px; margin: 0 auto;
 }
-.section-cta h2 {
-	margin-left: auto;
-	margin-right: auto;
+.cta__sparkle { position: absolute; top: -40px; right: -40px; opacity: 0.08; }
+.cta__title {
+  font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.05;
+  letter-spacing: -0.03em; color: var(--bg); margin-bottom: 18px; position: relative;
 }
-.section-cta p {
-	color: #8b93a8;
-	font-size: 1.1rem;
-	margin-bottom: 28px;
-	line-height: 1.65;
+.cta__accent { color: var(--accent); }
+.cta__sub {
+  font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.7);
+  margin: 0 auto 32px; max-width: 580px; position: relative;
 }
-.cta-note {
-	margin-top: 14px;
-	font-size: 0.9rem;
-	color: #4b5563;
+.btn-cta {
+  font-size: 16px; font-weight: 600; color: var(--ink); background: var(--accent);
+  border: none; padding: 16px 32px; border-radius: 10px; cursor: pointer;
+  position: relative; transition: transform 0.1s, opacity 0.15s;
 }
+.btn-cta:hover { opacity: 0.94; transform: translateY(-1px); }
+.cta__note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 18px; position: relative; }
 
-/* ─── Footer ─── */
-footer {
-	padding: 32px 0;
-	border-top: 1px solid rgba(255,255,255,0.06);
-}
-footer .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 6px;
-}
-footer p { font-size: 0.9rem; color: #4b5563; }
+/* Footer */
+.footer { padding: 32px 0; border-top: 1px solid var(--border); }
+.footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer p { font-size: 13px; color: var(--muted); }
 
-/* ─── Modal ─── */
-.modal-backdrop {
-	display: none;
-	position: fixed;
-	inset: 0;
-	z-index: 200;
-	background: rgba(5, 8, 20, 0.8);
-	backdrop-filter: blur(4px);
-	align-items: center;
-	justify-content: center;
-	padding: 24px;
-}
-.modal-backdrop.is-open { display: flex; }
-.modal {
-	background: #111827;
-	border: 1px solid rgba(255,255,255,0.1);
-	border-radius: 14px;
-	padding: 36px;
-	width: 100%;
-	max-width: 480px;
-	position: relative;
-}
-.modal h2 {
-	font-size: 1.5rem;
-	font-weight: 800;
-	color: #fff;
-	margin-bottom: 6px;
-}
-.modal__intro {
-	font-size: 0.95rem;
-	color: #8b93a8;
-	margin-bottom: 24px;
-}
-.modal__close {
-	position: absolute;
-	top: 16px;
-	right: 18px;
-	background: none;
-	border: none;
-	color: #6b7280;
-	font-size: 1.5rem;
-	line-height: 1;
-	cursor: pointer;
-	padding: 4px 8px;
-	border-radius: 4px;
-	transition: color 0.15s;
-}
-.modal__close:hover { color: #c2c8d6; }
-.modal__honeypot { display: none; }
-.form-row {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	margin-bottom: 14px;
-}
-.form-row label {
-	font-size: 0.875rem;
-	font-weight: 600;
-	color: #9ca3af;
-}
-.required { color: #a78bfa; }
-.form-row input,
-.form-row textarea {
-	background: #0d1424;
-	border: 1px solid rgba(255,255,255,0.1);
-	border-radius: 7px;
-	color: #c2c8d6;
-	font-family: 'Source Sans 3', system-ui, sans-serif;
-	font-size: 1rem;
-	padding: 10px 13px;
-	transition: border-color 0.15s;
-	width: 100%;
-}
-.form-row input:focus,
-.form-row textarea:focus {
-	outline: none;
-	border-color: #7c3aed;
-}
-.form-row input.is-invalid,
-.form-row textarea.is-invalid { border-color: #ef4444; }
-.form-row textarea { resize: vertical; }
-.modal__msg {
-	font-size: 0.9rem;
-	min-height: 1.2em;
-	margin-bottom: 14px;
-}
-.modal__msg--error { color: #f87171; }
-.modal__msg--success { color: #34d399; }
-.modal__submit { width: 100%; justify-content: center; border: none; cursor: pointer; }
-.modal__submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.modal__success { display: none; text-align: center; padding: 20px 0; }
-.modal__success-icon {
-	font-size: 2.5rem;
-	color: #34d399;
-	margin-bottom: 12px;
-}
-.modal__success h3 { font-size: 1.2rem; color: #dde1eb; font-weight: 700; }
-.modal--success form { display: none; }
-.modal--success .modal__intro { display: none; }
-.modal--success .modal__success { display: block; }
-
-/* ─── Button reset for <button> elements ─── */
-.btn-primary, .nav-cta { cursor: pointer; border: none; }
-.nav-cta { background: none; font-family: 'Source Sans 3', system-ui, sans-serif; }
-
-/* ─── Responsive ─── */
-@media (max-width: 640px) {
-	.hero { padding: 48px 0 40px; }
-	.section { padding: 48px 0; }
-	.hero-actions { flex-direction: column; align-items: flex-start; }
-	.step { gap: 18px; }
-	.modal { padding: 28px 20px; }
+@media (max-width: 768px) {
+  .nav__right { gap: 16px; }
+  .nav__link { display: none; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 32px 0; }
+  .steps__line { display: none; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .cta { padding: 48px 28px; }
+  .section { padding: 64px 0; }
+  .hero { padding: 56px 0 48px; }
 }
 </style>
-
-<script>
-const API = 'https://api.nettsite.co.za/api/contact';
-
-const backdrop   = document.querySelector('.modal-backdrop');
-const modalEl    = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal__close');
-const modalForm  = document.querySelector('.modal form') as HTMLFormElement | null;
-const modalMsg   = document.querySelector('.modal__msg');
-
-function openModal() {
-	if (!backdrop) return;
-	backdrop.classList.add('is-open');
-	document.body.style.overflow = 'hidden';
-	(backdrop.querySelector('input:not([type=hidden])') as HTMLElement | null)?.focus();
-}
-
-function closeModal() {
-	if (!backdrop) return;
-	backdrop.classList.remove('is-open');
-	document.body.style.overflow = '';
-	modalEl?.classList.remove('modal--success');
-	if (modalMsg) { modalMsg.className = 'modal__msg'; modalMsg.textContent = ''; }
-	modalForm?.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-}
-
-document.querySelectorAll('.modal-trigger').forEach(btn => btn.addEventListener('click', openModal));
-modalClose?.addEventListener('click', closeModal);
-backdrop?.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-modalForm?.querySelectorAll('input, textarea').forEach(el => {
-	el.addEventListener('input', () => (el as HTMLElement).classList.remove('is-invalid'));
-});
-
-modalForm?.addEventListener('submit', async (e) => {
-	e.preventDefault();
-
-	const honeypot = modalForm.querySelector<HTMLInputElement>('.modal__honeypot input');
-	if (honeypot?.value) return;
-
-	const emailField = modalForm.querySelector<HTMLInputElement>('[name=email]')!;
-	const email = emailField.value.trim();
-	if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-		emailField.classList.add('is-invalid');
-		emailField.focus();
-		if (modalMsg) { modalMsg.className = 'modal__msg modal__msg--error'; modalMsg.textContent = 'Please enter a valid email address.'; }
-		return;
-	}
-
-	const submitBtn = modalForm.querySelector<HTMLButtonElement>('[type=submit]')!;
-	submitBtn.disabled = true;
-	submitBtn.textContent = 'Sending…';
-	if (modalMsg) { modalMsg.className = 'modal__msg'; modalMsg.textContent = ''; }
-
-	const data = {
-		name:    modalForm.querySelector<HTMLInputElement>('[name=name]')?.value ?? '',
-		email,
-		company: modalForm.querySelector<HTMLInputElement>('[name=company]')?.value ?? '',
-		phone:   modalForm.querySelector<HTMLInputElement>('[name=phone]')?.value ?? '',
-		message: modalForm.querySelector<HTMLTextAreaElement>('[name=message]')?.value ?? '',
-	};
-
-	try {
-		const res = await fetch(API, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(data),
-		});
-		if (!res.ok) throw new Error('Server error');
-		modalForm.reset();
-		modalEl?.classList.add('modal--success');
-	} catch {
-		if (modalMsg) {
-			modalMsg.className = 'modal__msg modal__msg--error';
-			modalMsg.textContent = 'Something went wrong. Please try again or email us directly.';
-		}
-	} finally {
-		submitBtn.disabled = false;
-		submitBtn.textContent = 'Send';
-	}
-});
-</script>
