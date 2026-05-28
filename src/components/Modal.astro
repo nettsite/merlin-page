@@ -34,7 +34,7 @@
       </div>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAADXt6bbtXJ8j0uxz" data-appearance="interaction-only"></div>
       <p class="modal__msg" role="alert"></p>
-      <button type="submit" class="btn-primary modal__submit">Send</button>
+      <button type="submit" class="modal__submit">Send →</button>
     </form>
     <div class="modal__success">
       <div class="modal__success-icon">✓</div>
@@ -136,7 +136,14 @@
 }
 .modal__msg--error { color: #dc2626; }
 .modal__msg--success { color: #059669; }
-.modal__submit { width: 100%; justify-content: center; border: none; cursor: pointer; }
+.modal__submit {
+  width: 100%; justify-content: center; border: none; cursor: pointer;
+  background: var(--ink, #111); color: var(--accentOn, #fff);
+  font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: transform 0.1s, opacity 0.15s;
+}
+.modal__submit:hover { opacity: 0.92; transform: translateY(-1px); }
 .modal__submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .modal__success { display: none; text-align: center; padding: 20px 0; }
 .modal__success-icon {
