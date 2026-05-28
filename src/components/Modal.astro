@@ -2,6 +2,7 @@
 // Shared "Request access" modal + its submission script.
 // Drop this once per page; trigger by adding class="modal-trigger" to any button.
 ---
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
     <button class="modal__close" aria-label="Close">&times;</button>
@@ -31,6 +32,7 @@
         <label for="m-message">Message</label>
         <textarea id="m-message" name="message" rows="3" placeholder="Anything you'd like us to know…"></textarea>
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAADXt6bbtXJ8j0uxz"></div>
       <p class="modal__msg" role="alert"></p>
       <button type="submit" class="btn-primary modal__submit">Send</button>
     </form>
@@ -197,6 +199,12 @@ modalForm?.addEventListener('submit', async (e) => {
     return;
   }
 
+  const turnstileToken = modalForm.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]')?.value ?? '';
+  if (!turnstileToken) {
+    if (modalMsg) { modalMsg.className = 'modal__msg modal__msg--error'; modalMsg.textContent = 'Please complete the security check.'; }
+    return;
+  }
+
   const submitBtn = modalForm.querySelector<HTMLButtonElement>('[type=submit]')!;
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
@@ -208,6 +216,7 @@ modalForm?.addEventListener('submit', async (e) => {
     company: modalForm.querySelector<HTMLInputElement>('[name=company]')?.value ?? '',
     phone:   modalForm.querySelector<HTMLInputElement>('[name=phone]')?.value ?? '',
     message: modalForm.querySelector<HTMLTextAreaElement>('[name=message]')?.value ?? '',
+    'cf-turnstile-response': turnstileToken,
   };
 
   try {
