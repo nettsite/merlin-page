@@ -25,15 +25,16 @@ import Modal from '../components/Modal.astro';
         <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
           <path d="M8 1l1.8 4.2L14 7l-4.2 1.8L8 13l-1.8-4.2L2 7l4.2-1.8z" fill="currentColor"/>
         </svg>
-        AI-powered · Self-hosted · In active use
+        AI-powered · Hosted or self-hosted · Open source
       </div>
       <h1 class="hero__title">
-        Invoice processing that learns your business —
-        <span class="hero__title-accent">and lives inside your books.</span>
+        The accounting platform that learns your business —
+        <span class="hero__title-accent">and lives inside it.</span>
       </h1>
       <p class="hero__sub">
-        Merlin reads supplier PDFs, extracts every line item, suggests GL accounts, and posts transactions —
-        inside your own system. It learns your specific business with every invoice it processes.
+        Purchase invoices, sales billing, the general ledger, expenses, and email campaigns — in one system.
+        Merlin's AI extracts, codes, and posts documents automatically, and gets more accurate with every invoice
+        it processes. Use our hosted version, or self-host for free — it's open source.
       </p>
       <div class="hero__actions">
         <button class="btn-primary modal-trigger" type="button">
@@ -52,7 +53,7 @@ import Modal from '../components/Modal.astro';
   <section class="section" id="problem">
     <div class="container">
       <div class="section__label">The problem</div>
-      <h2 class="section__title">Every invoice still needs someone to open it, code it, and key it in.</h2>
+      <h2 class="section__title">Running your books is still too manual, too scattered, and not really yours.</h2>
       <div class="problem-grid">
         <div class="problem-card">
           <div class="problem-card__icon">
@@ -69,13 +70,14 @@ import Modal from '../components/Modal.astro';
         <div class="problem-card">
           <div class="problem-card__icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 8 L21 8 L21 19 Q21 20 20 20 L4 20 Q3 20 3 19 Z" />
-              <path d="M7 8 L7 5 Q7 4 8 4 L16 4 Q17 4 17 5 L17 8" />
-              <line x1="12" y1="12" x2="12" y2="16" />
+              <rect x="3" y="3" width="8" height="8" rx="1.5" />
+              <rect x="13" y="3" width="8" height="8" rx="1.5" />
+              <rect x="3" y="13" width="8" height="8" rx="1.5" />
+              <rect x="13" y="13" width="8" height="8" rx="1.5" />
             </svg>
           </div>
-          <h3>Outsource it and you're paying for data entry.</h3>
-          <p>Your financials leave your system. Someone else's hands touch your supplier relationships and spending patterns. Then they send it back.</p>
+          <h3>Your accounting, billing, and email tools don't talk to each other.</h3>
+          <p>Invoice in one system, books in another, client emails in a third. Every month someone reconciles the gaps — and all those subscriptions add up.</p>
         </div>
         <div class="problem-card">
           <div class="problem-card__icon">
@@ -94,32 +96,31 @@ import Modal from '../components/Modal.astro';
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- What Merlin does -->
   <section class="section section--alt" id="how-it-works">
     <div class="container">
-      <div class="section__label">How it works</div>
-      <h2 class="section__title">Four steps — from supplier PDF to posted transaction.</h2>
-      <div class="steps">
-        <div class="steps__line" aria-hidden="true"></div>
-        <div class="step">
-          <div class="step__num">01</div>
-          <h3>Invoice arrives</h3>
-          <p>Upload a PDF or drop into a watched folder for hands-free batch ingestion.</p>
+      <div class="section__label">What's included</div>
+      <h2 class="section__title">One system for your full financial workflow.</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-card__tag">Purchasing</div>
+          <h3>AI supplier invoice processing</h3>
+          <p>PDF, Word, Excel or CSV — Merlin extracts every line item, suggests GL account codes from your history, and auto-posts when it's confident. Learns your coding patterns with every invoice.</p>
         </div>
-        <div class="step">
-          <div class="step__num">02</div>
-          <h3>Merlin extracts everything</h3>
-          <p>Supplier, dates, every line item, tax, totals. Multi-currency with live rates.</p>
+        <div class="diff-card">
+          <div class="diff-card__tag">Sales &amp; Billing</div>
+          <h3>Invoices, quotes, and recurring billing</h3>
+          <p>Create sales invoices, quotes, and credit notes. Set up recurring billing — weekly to annual — with auto-send. Track payments, outstanding balances, and overdue accounts.</p>
         </div>
-        <div class="step">
-          <div class="step__num">03</div>
-          <h3>Suggests account codes</h3>
-          <p>From your own posting history — getting more accurate every month.</p>
+        <div class="diff-card">
+          <div class="diff-card__tag">Ledger &amp; Expenses</div>
+          <h3>Full GL and expense reporting</h3>
+          <p>Hierarchical chart of accounts, multi-currency expenses with live rates for 160+ currencies, and expense reports by account or supplier. Proper double-entry from day one.</p>
         </div>
-        <div class="step">
-          <div class="step__num">04</div>
-          <h3>Posts or queues for review</h3>
-          <p>High confidence, auto-posted. Low confidence, review queue. You set the threshold.</p>
+        <div class="diff-card">
+          <div class="diff-card__tag">Email &amp; Campaigns</div>
+          <h3>Transactional invoices and newsletters</h3>
+          <p>Send invoice emails with custom templates and merge tags. Run email campaigns to contact lists and segments — all from the same system, no third-party email service needed.</p>
         </div>
       </div>
     </div>
@@ -129,12 +130,12 @@ import Modal from '../components/Modal.astro';
   <section class="section" id="why-merlin">
     <div class="container">
       <div class="section__label">Why Merlin</div>
-      <h2 class="section__title">AI that knows your suppliers, your accounts, and your preferences.</h2>
+      <h2 class="section__title">Built for the way small businesses actually work — not the way enterprise software assumes.</h2>
       <div class="diff-grid">
         <div class="diff-card">
-          <div class="diff-card__tag">Privacy</div>
-          <h3>Your data never leaves</h3>
-          <p>Merlin runs inside your own environment. Every invoice, every GL posting, every AI decision lives in your database — under your control, with a full audit trail.</p>
+          <div class="diff-card__tag">No lock-in</div>
+          <h3>Hosted or self-hosted — your choice</h3>
+          <p>Use our hosted version for a monthly fee, or self-host for free — the full source is on GitHub. Either way, there's no proprietary black box. You can always take your data and run it yourself.</p>
         </div>
         <div class="diff-card">
           <div class="diff-card__tag">Personalised</div>
@@ -147,9 +148,9 @@ import Modal from '../components/Modal.astro';
           <p>Speed of automation on invoices Merlin knows well. A clear review queue for anything unusual. No silent errors buried in your accounts.</p>
         </div>
         <div class="diff-card">
-          <div class="diff-card__tag">Real bookkeeping</div>
-          <h3>Proper double-entry ledger</h3>
-          <p>Not a simplified tracker. Full chart of accounts, tax rate handling, document sequencing. Built to support real bookkeeping work — without the data entry.</p>
+          <div class="diff-card__tag">Complete billing cycle</div>
+          <h3>Purchase, sales, and recurring — in one place</h3>
+          <p>Purchase invoice processing, sales invoices, quotes, credit notes, and recurring billing (weekly to annual with auto-send). Full chart of accounts, tax handling, and document sequencing — not a simplified tracker.</p>
         </div>
       </div>
     </div>
@@ -158,20 +159,51 @@ import Modal from '../components/Modal.astro';
   <!-- Features -->
   <section class="section section--alt" id="features">
     <div class="container">
-      <div class="section__label">What's included</div>
-      <h2 class="section__title">Every step covered, from invoice to ledger.</h2>
+      <div class="section__label">Features</div>
+      <h2 class="section__title">Everything in the box.</h2>
       <ul class="feature-list">
-        <li><span class="check">✓</span> PDF invoice ingestion — upload or watched folder batch processing</li>
-        <li><span class="check">✓</span> Intelligent extraction — supplier, line items, tax, totals</li>
-        <li><span class="check">✓</span> Multi-currency support — live rates, finalised at payment</li>
-        <li><span class="check">✓</span> Account code suggestion from your own posting history</li>
-        <li><span class="check">✓</span> Autonomous posting rules — condition-based auto-approval</li>
-        <li><span class="check">✓</span> Review queue for anything that needs a human eye</li>
-        <li><span class="check">✓</span> Payables tracking — outstanding balances and due dates</li>
-        <li><span class="check">✓</span> Expense reporting by account and supplier</li>
+        <li><span class="check">✓</span> PDF, Word, Excel &amp; CSV ingestion — batch ZIP upload, up to 50 files at once</li>
+        <li><span class="check">✓</span> AI extraction — supplier, every line item, tax, totals, with confidence scoring</li>
+        <li><span class="check">✓</span> GL account suggestion from your own posting history, refined by AI</li>
+        <li><span class="check">✓</span> Confidence-scored auto-posting — configurable thresholds per supplier and description pattern</li>
+        <li><span class="check">✓</span> Review queue for anything below your confidence threshold</li>
+        <li><span class="check">✓</span> Multi-currency expenses — live rates for 160+ currencies, finalised at payment</li>
+        <li><span class="check">✓</span> Sales invoices, quotes &amp; credit notes — full outbound billing workflow</li>
+        <li><span class="check">✓</span> Recurring billing — weekly to annual, auto-send, pro-rata first invoice</li>
+        <li><span class="check">✓</span> Payment recording with overdue detection and balance-due tracking</li>
+        <li><span class="check">✓</span> Payables &amp; receivables tracking — outstanding balances and due dates</li>
+        <li><span class="check">✓</span> Expense reporting by account and by supplier</li>
+        <li><span class="check">✓</span> AI performance monitoring — token spend, confidence distribution, extraction rates</li>
+        <li><span class="check">✓</span> Role-based access control — granular permissions per user</li>
         <li><span class="check">✓</span> Full audit trail — every action and AI decision logged</li>
         <li><span class="check">✓</span> Multi-tenant — separate books per entity, landlord admin panel</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Deployment options -->
+  <section class="section" id="get-merlin">
+    <div class="container">
+      <div class="section__label">How to get Merlin</div>
+      <h2 class="section__title">Hosted or self-hosted — it's your call.</h2>
+      <div class="deploy-grid">
+        <div class="deploy-card deploy-card--highlight">
+          <div class="deploy-card__tag">Hosted</div>
+          <h3>We run it. You log in.</h3>
+          <p>No server, no setup. We handle hosting, updates, and backups. Pay a monthly fee and start processing invoices the same day.</p>
+          <button class="deploy-card__cta btn-primary modal-trigger" type="button">
+            Request access <span class="hero__arrow">→</span>
+          </button>
+        </div>
+        <div class="deploy-card">
+          <div class="deploy-card__tag">Self-hosted · Free</div>
+          <h3>Run it on your own server.</h3>
+          <p>Merlin is open source under an MIT-style licence. Host it yourself, keep full control of your data, and pay nothing. Community support via GitHub.</p>
+          <a class="deploy-card__cta btn-secondary" href="https://github.com/nettsite/merlin" target="_blank" rel="noopener">
+            View on GitHub →
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -182,12 +214,12 @@ import Modal from '../components/Modal.astro';
         <path d="M0 28 L0 14 Q0 4 8 0 L10 4 Q5 6 5 12 L11 12 L11 28 Z M21 28 L21 14 Q21 4 29 0 L31 4 Q26 6 26 12 L32 12 L32 28 Z" fill="currentColor"/>
       </svg>
       <p class="pullquote__text">
-        Generic AI knows accounting in general.<br/>
-        <span class="pullquote__accent">Merlin knows yours.</span>
+        Generic accounting software knows the rules.<br/>
+        <span class="pullquote__accent">Merlin knows your business.</span>
       </p>
       <div class="status-bar">
-        <div class="status-item"><span class="status-dot"></span> Core pipeline in production</div>
-        <div class="status-item"><span class="status-dot"></span> Multi-tenant live</div>
+        <div class="status-item"><span class="status-dot"></span> Purchase processing live</div>
+        <div class="status-item"><span class="status-dot"></span> Sales &amp; billing live</div>
         <div class="status-item"><span class="status-dot"></span> Early access open</div>
       </div>
     </div>
@@ -322,25 +354,6 @@ import Modal from '../components/Modal.astro';
 }
 .problem-card p { font-size: 14.5px; line-height: 1.6; color: var(--inkSoft); }
 
-/* Steps */
-.steps {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;
-}
-.steps__line {
-  position: absolute; top: 22px; left: 12.5%; right: 12.5%; height: 1px;
-  background: repeating-linear-gradient(90deg, var(--accentBorder), var(--accentBorder) 4px, transparent 4px, transparent 8px);
-}
-.step { padding: 0 16px; text-align: center; position: relative; }
-.step__num {
-  width: 44px; height: 44px; border-radius: 50%; background: var(--bg);
-  border: 1.5px solid var(--accent); color: var(--accent);
-  font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 22px; letter-spacing: 0.02em;
-}
-.step h3 { font-size: 16.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
-.step p { font-size: 14px; line-height: 1.55; color: var(--inkSoft); }
-
 /* Why Merlin */
 .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .diff-card {
@@ -374,6 +387,24 @@ import Modal from '../components/Modal.astro';
   display: inline-flex; align-items: center; justify-content: center;
   flex-shrink: 0; font-size: 13px; font-weight: 700;
 }
+
+/* Deployment */
+.deploy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.deploy-card {
+  border: 1px solid var(--border); border-radius: 12px; padding: 32px;
+  background: var(--surface); display: flex; flex-direction: column; gap: 12px;
+}
+.deploy-card--highlight { border-color: var(--accent); border-width: 1.5px; }
+.deploy-card__tag {
+  font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.1em;
+  font-weight: 600; color: var(--accent);
+}
+.deploy-card h3 {
+  font-size: 22px; font-weight: 700; line-height: 1.2; color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.deploy-card p { font-size: 15px; line-height: 1.6; color: var(--inkSoft); flex: 1; }
+.deploy-card__cta { margin-top: 8px; align-self: flex-start; }
 
 /* Pullquote */
 .pullquote { padding: 100px 0; }
@@ -423,9 +454,8 @@ import Modal from '../components/Modal.astro';
 @media (max-width: 768px) {
   .nav__right { gap: 16px; }
   .nav__link { display: none; }
-  .steps { grid-template-columns: 1fr 1fr; gap: 32px 0; }
-  .steps__line { display: none; }
   .diff-grid { grid-template-columns: 1fr; }
+  .deploy-grid { grid-template-columns: 1fr; }
   .cta { padding: 48px 28px; }
   .section { padding: 64px 0; }
   .hero { padding: 56px 0 48px; }
