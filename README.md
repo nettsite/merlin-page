@@ -1,45 +1,38 @@
-# Merlin — A/B preview deployment
+# merlin-page
 
-Drop these files into your existing `magical-mercury/` Astro project:
+Marketing site for [Merlin](https://github.com/nettsite/merlin) — self-hosted and hosted accounting software for small businesses.
 
-```
-magical-mercury/
-└── src/
-    ├── layouts/
-    │   └── Layout.astro          ← REPLACES existing
-    ├── components/
-    │   ├── PreviewBar.astro      ← NEW
-    │   ├── LogoQuill.astro       ← NEW (Direction A logo)
-    │   ├── LogoSparkle.astro     ← NEW (Direction B logo)
-    │   ├── InvoiceMock.astro     ← NEW (hero product mock)
-    │   └── Modal.astro           ← NEW (request-access form)
-    └── pages/
-        ├── index.astro           ← REPLACES existing (Direction B)
-        └── a.astro               ← NEW (Direction A)
+Built with Astro 6. Deployed on Cloudflare Pages.
+
+## Commands
+
+```bash
+npm run dev       # Dev server at localhost:4321
+npm run build     # Build to ./dist/
+npm run preview   # Preview built output locally
 ```
 
-## What this gives you
+## Stack
 
-- **`/`** → Direction B (Workshop). Crisp white + warm amber. Default.
-- **`/a`** → Direction A (Ledger). Cream paper + ink blue + editorial serif.
-- A slim dark bar at the top of each page tells visitors which version they're on
-  and links to the other.
-- Existing `Welcome.astro` is no longer used — safe to delete, or leave it.
-- Existing modal/contact form behaviour preserved (same API endpoint).
+- Astro 6 (static output)
+- Scoped CSS, no framework
+- Contact form POSTs to `https://api.nettsite.co.za/api/contact`
+- Cloudflare Turnstile on the request-access modal
 
-## To deploy on Cloudflare Pages
+## Structure
 
-Just `git push` — Cloudflare will rebuild from the new files and `/`, `/a`
-will both be live. Share both URLs with friends, point them at `/` first;
-they can flip via the top bar.
+```
+src/
+├── layouts/
+│   └── Layout.astro        # Shell, theme tokens, meta
+├── components/
+│   ├── LogoSparkle.astro   # Inline SVG logo
+│   ├── InvoiceMock.astro   # Hero product mock
+│   └── Modal.astro         # Request-access form
+└── pages/
+    └── index.astro
+```
 
-## After friends weigh in
+## Deploying
 
-Once you've picked a winner:
-
-1. If **B wins**, just delete `src/pages/a.astro` and remove the `<PreviewBar />`
-   import + element from `index.astro`.
-2. If **A wins**, copy the contents of `a.astro` into `index.astro` (changing
-   `variant="A"`), then delete `a.astro` and remove the `<PreviewBar />`.
-
-Either way, also drop the `PreviewBar.astro` component file.
+Push to `main` — Cloudflare Pages rebuilds automatically.
