@@ -4,7 +4,6 @@ interface Props {
   description?: string;
   ogImage?: string;
   canonical?: string;
-  variant?: 'A' | 'B';
 }
 
 const SITE_URL = 'https://merlinapp.io';
@@ -14,7 +13,6 @@ const {
   description = 'Merlin reads supplier PDFs, extracts every line item, and posts transactions inside your own system. No third-party bureau. Your data never leaves.',
   ogImage = `${SITE_URL}/logo.png`,
   canonical = SITE_URL,
-  variant = 'B',
 } = Astro.props;
 
 const jsonLd = {
@@ -37,7 +35,7 @@ const jsonLd = {
 };
 ---
 <!doctype html>
-<html lang="en" data-variant={variant}>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +68,7 @@ const jsonLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -99,10 +97,7 @@ const jsonLd = {
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; }
 
-  /* ─────────────────────────────────────────
-     THEME — Direction B (Workshop) is default
-     ───────────────────────────────────────── */
-  html[data-variant='B'] {
+  html {
     --bg: #FFFFFF;
     --bgAlt: #FAF8F4;
     --surface: #FFFFFF;
@@ -117,27 +112,5 @@ const jsonLd = {
     --accentBorder: #F2D9B7;
     --chrome: #FAF8F4;
     --shadow: 0 1px 0 rgba(0,0,0,0.02), 0 18px 40px -16px rgba(26,26,26,0.14);
-    --fontDisplay: 'Inter', system-ui, sans-serif;
-  }
-
-  /* ─────────────────────────────────────────
-     THEME — Direction A (Ledger)
-     ───────────────────────────────────────── */
-  html[data-variant='A'] {
-    --bg: #F5F0E6;
-    --bgAlt: #EDE6D6;
-    --surface: #FFFFFF;
-    --ink: #0F1B3D;
-    --inkSoft: #3B4566;
-    --muted: #7A7263;
-    --border: #E5DCC7;
-    --accent: #0F1B3D;
-    --accentOn: #F5F0E6;
-    --accentInk: #0F1B3D;
-    --accentSoft: #EFE6D2;
-    --accentBorder: #D9CDB3;
-    --chrome: #FAF6EC;
-    --shadow: 0 1px 0 rgba(15,27,61,0.04), 0 12px 40px -12px rgba(15,27,61,0.18);
-    --fontDisplay: 'Fraunces', 'Source Serif Pro', Georgia, serif;
   }
 </style>
