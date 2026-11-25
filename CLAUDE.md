@@ -51,6 +51,10 @@ src/
 
 The contact form still POSTs to `https://api.nettsite.co.za/api/contact` — preserved from the original.
 
+### Modal trigger pattern
+
+Any element with `class="modal-trigger"` opens the modal. The modal component itself is included once at the bottom of `index.astro` via `<Modal />`. The form requires a valid Cloudflare Turnstile token (`data-sitekey="0x4AAAAAADXt6bbtXJ8j0uxz"`, `interaction-only` mode) before submission — don't remove this.
+
 ## Architecture
 
 Astro 6 project using the "basics" starter. TypeScript strict mode enabled.
@@ -66,3 +70,7 @@ Astro 6 project using the "basics" starter. TypeScript strict mode enabled.
 **Assets**: Static files in `public/` are served as-is. Processed assets (SVG, images) go in `src/assets/` and are imported directly in components. Logo is inline SVG in `LogoSparkle.astro`; the old `public/logo.png` remains only as the OG image fallback.
 
 **No framework yet**: Currently pure Astro components only. To add React/Vue/Svelte, run `npx astro add <integration>` — this updates `astro.config.mjs` and installs the adapter.
+
+**CSS**: No framework, no PostCSS, no Tailwind. All styles live in `<style>` blocks within `.astro` files. Component styles are Astro-scoped by default. Page-level styles in `index.astro` are unscoped and target BEM-style class names. Theme tokens are CSS custom properties on `html` in `Layout.astro`'s `<style is:global>` block — use `var(--token)` everywhere, never hardcode colours.
+
+**Sitemap**: `@astrojs/sitemap` is active. It auto-generates `/sitemap-index.xml` from all pages on build. The canonical site URL is `https://merlinapp.io` (set in `astro.config.mjs`).
